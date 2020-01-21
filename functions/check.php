@@ -35,7 +35,7 @@ function loginuser($loginname,$loginpassword) {
     $conn= new mysqli($servername,$username,$password,$dbname);
 
     
-    
+    $o = "?,?,?"
 
     $sql = "SELECT * FROM users WHERE uidUsers='nametochange'";
 
