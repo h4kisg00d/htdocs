@@ -16,15 +16,43 @@ function createuser($loginname,$newpassword) {
 
     $conn = new mysqli($servername,$username,$password,$dbname);
 
+
+
+    $sql3 = "SELECT * FROM users WHERE uidUsers='".$loginname."'";
+
+    $result = mysqli_query($conn,$sql3);
+
+
+    if (mysqli_num_rows($result) > 0) {
+
+
+        echo "NOPE! :)";
+
+
+
+    } else {
+
+
     $sql = "INSERT INTO users (uidUsers,pwdUsers)
     VALUES ('".$loginname."','".$newpassword."');"; // SQL statement to be executed
 
     $result = mysqli_query($conn,$sql);
 
+    }
+
 
 }
 
 
+
+function checkuserexists() {
+
+    $servername = "localhost";
+
+
+
+
+}
 function loginuser($loginname,$loginpassword) {
 
 
@@ -35,7 +63,7 @@ function loginuser($loginname,$loginpassword) {
     $conn= new mysqli($servername,$username,$password,$dbname);
 
     
-    $o = "?,?,?"
+    $o = "?,?,?";
 
     $sql = "SELECT * FROM users WHERE uidUsers='nametochange'";
 

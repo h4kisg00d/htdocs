@@ -33,7 +33,7 @@ STORES	</a>
 <a class="submenuitem" href="https://store.steampowered.com/explore/">Explore</a>
 <a class="submenuitem" href="https://store.steampowered.com/curators/">Curators</a>
 <a class="submenuitem" href="https://steamcommunity.com/my/wishlist/">Wishlist</a>
-<a class="submenuitem" href="https://store.steampowered.com/news/">News</a>
+<a class="submenuitem" href="https://store.steampowered.com/news/">HI</a>
 <a class="submenuitem" href="https://store.steampowered.com/stats/">Stats</a>
 </div>
 ';
