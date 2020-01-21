@@ -5,6 +5,8 @@
 <head>
 
 
+
+
 <body>
 
 
@@ -33,12 +35,17 @@
 
 <?php
 
+require 'functions/check.php'; // requiring the file
+
 
 if (isset($_POST['username'])) {
 
-
-    require 'nameoffile'; // requiring the file
+   
+$output = createuser($_POST['username'],$_POST['password']);
+   
 }
+
+
 
 
 

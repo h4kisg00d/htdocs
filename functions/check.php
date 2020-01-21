@@ -4,7 +4,7 @@
 
 
 
-function testing() {
+function createuser($loginname,$newpassword) {
 
 
     // creating the function itself
@@ -16,8 +16,8 @@ function testing() {
 
     $conn = new mysqli($servername,$username,$password,$dbname);
 
-    $sql = "INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-    VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');"; // SQL statement to be executed
+    $sql = "INSERT INTO users (uidUsers,pwdUsers)
+    VALUES ('".$loginname."','".$newpassword."');"; // SQL statement to be executed
 
     $result = mysqli_query($conn,$sql);
 
