@@ -25,6 +25,37 @@ function createuser($loginname,$newpassword) {
 }
 
 
+function loginuser($loginname,$loginpassword) {
+
+
+    $servername = "locahost";
+    $username = "root";
+    $password = "";
+    $dbname = "loginsystem";
+    $conn= new mysqli($servername,$username,$password,$dbname);
+
+    
+    
+
+    $sql = "SELECT * FROM users WHERE uidUsers='nametochange'";
+
+    $le = str_replace("nametochange",$loginname,$sql);
+
+
+    $result = mysqli_query($le);
+
+
+
+
+
+    // function for checking if the user is in the database or not
+}
+
+
+
+
+
+
 
 
 
