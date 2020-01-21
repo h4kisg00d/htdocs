@@ -12,7 +12,7 @@ require "header.php";
 <h1> Signup</h1>
 
 
-<form action="includes/signup.inc.php" method="post">
+<form action="signup2.php" method="post">
 
 <input type="text" name="uid" placeholder="Username">
 <input type="text" name="mail" placeholder="Email">

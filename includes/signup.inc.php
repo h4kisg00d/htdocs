@@ -119,4 +119,6 @@ else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
    else {
 header("Location: ../signup.php");
 
+exit();
+
    }

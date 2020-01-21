@@ -8,6 +8,14 @@
 
 </head>
 
+<?php
+
+session_start();
+
+?>
+
+
+
 <body>
 
 <head>
@@ -30,24 +38,41 @@
 
 <div>
 
-<form action="includes/login.php" method="post">
 
-<input type="text" name="mailuid" placeholder="Enter your username">
-<input type="password" name="pwd" placeholder="Enter your password">
-<button type="submit" name="login-submit">Login</button>
+<?php
+if (isset($_SESSION['userId'])) {
 
-
-</form>
-
-<a href="signup.php">Signup</a>
+    echo '<a href="signup.php">Signup</a>
 
 
-<form action="includes/logout.php" method="post">
+    <form action="includes/logout.inc.php" method="post">
+    
+    <button type="submit" name="logout-submit">Logout</button>';
 
-<button type="submit" name="logout-submit">Logout</button>
+}
+
+else {
+
+    echo '<form action="includes/login.inc.php" method="post">
+
+    <input type="text" name="mailuid" placeholder="Enter your username">
+    <input type="password" name="pwd" placeholder="Enter your password">
+    <button type="submit" name="login-submit">Login</button>
+    
+    
+    </form>
+    
+    
+    
+    
+    </form>';
+
+}
+?>
 
 
-</form>
+
+
 
 
 
