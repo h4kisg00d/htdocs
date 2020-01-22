@@ -33,10 +33,13 @@ function createuser($loginname,$newpassword) {
     } else {
 
 
-    $sql = "INSERT INTO users (uidUsers,pwdUsers)
+    $sql1 = "INSERT INTO users (uidUsers,pwdUsers)
     VALUES ('".$loginname."','".$newpassword."');"; // SQL statement to be executed
 
-    $result = mysqli_query($conn,$sql);
+    $result = mysqli_query($conn,$sql1);
+
+
+    echo "test";
 
     }
 

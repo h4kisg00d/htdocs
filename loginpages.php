@@ -3,16 +3,17 @@
 <?php
 
 
+
+session_start();
 require 'functions/loginsystem.php';
 
 
 
-session_start(); // initiate a session
 
 // be able to check whether or not the user is logged in or not
 
 
-if (isset($_SESSION['name'])) {
+if (!isset($_SESSION['name'])) {
 
 
     echo '<form method="POST">
@@ -73,6 +74,9 @@ echo '
 
 
 
+   
+    
+echo "Not changed";
 
 
 }

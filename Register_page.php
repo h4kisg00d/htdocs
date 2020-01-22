@@ -24,7 +24,25 @@
 
     if (isset($_POST['Signup'])) {
 
+
+    
+
+
          $output = createuser($_POST['username9'],$_POST['password9']);
+
+
+
+
+         
+         
+
+
+
+
+
+
+
+
     
     }
 

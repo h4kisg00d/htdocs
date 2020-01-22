@@ -25,7 +25,14 @@ if (isset($_POST['loginbutton'])) {
     $sqlza = str_replace("CRYPTCODE",$inputpass,$sql2);
 
 
-    echo $sqlza;
+
+
+
+
+
+
+    // creating sesison
+    
     // querying the sql statement
 
 
@@ -42,6 +49,15 @@ if (isset($_POST['loginbutton'])) {
 
 
             echo "Found user";
+
+
+            $_SESSION['name']  = $inputname;
+
+            session_start();
+
+            echo "Session started";
+
+            
         }
     }
 
