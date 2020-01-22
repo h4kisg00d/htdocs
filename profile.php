@@ -7,7 +7,7 @@
 session_start(); // start the session
 
 
-if (isset($_SESSION['name'])) {
+if (!isset($_SESSION['name'])) {
 
 
 
