@@ -76,7 +76,8 @@ echo '
 
    
     
-echo "Not changed";
+    header('Location: http://localhost/profile.php');
+    exit;
 
 
 }
