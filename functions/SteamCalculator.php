@@ -197,10 +197,11 @@ $setworked1 = $level/100  *3 *$level;
 //$setf1 = number_format($setworked);
 
 
+$finae = number_format($setworked1);
 
-$stringset1 = '<p style="color:white;position:relative;top:150px;">That will be a total price of £BLEHBLEHBLEH</p>';
+$stringset1 = '<p style="color:white;position:relative;top:150px;">That will be a total price of $BLEHBLEHBLEH</p>';
 
-$lp1 = str_replace('BLEHBLEHBLEH',$setworked1,$stringset1);
+$lp1 = str_replace('BLEHBLEHBLEH',$finae,$stringset1);
 
 echo $lp1;
 
