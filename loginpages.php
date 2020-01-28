@@ -1,5 +1,9 @@
 
 
+
+
+
+
 <?php
 
 
@@ -18,6 +22,8 @@ if (!isset($_SESSION['name'])) {
 
     echo '<form method="POST">
 
+    
+
     <p> Username <p>
     <input type="text" name="username2" placeholder="Enter username">
     
@@ -33,6 +39,8 @@ if (!isset($_SESSION['name'])) {
     
     
     </form>
+
+   
     ';
 
 
@@ -73,10 +81,29 @@ echo '
 } else {
 
 
+echo '
 
+
+
+
+
+
+
+<form action="logout.php" method="POST">
+
+<button type="submit" name="logout-submit">Logout</button>
+
+
+
+
+</form>
+
+
+
+';
    
     
-    header('Location: http://localhost/profile.php');
+    header('Location: http://localhost:81/profile.php');
     exit;
 
 

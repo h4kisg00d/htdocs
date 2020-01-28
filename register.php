@@ -31,7 +31,7 @@
 
 
 <?php
-
+echo 'hi';
 if (isset($_POST['submit'])) {
 
 $servername = "localhost";
@@ -55,7 +55,7 @@ $sql10 = str_replace("Change2",$zep,$sql9); // using string replace methods to r
 
 $result = mysqli_query($conn,$sql10);
 
-
+echo $result;
 $pl = "Successfully registered user H4k";
 
 $plclone = str_replace("H4k",$ze,$pl);

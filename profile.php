@@ -17,7 +17,63 @@ if (!isset($_SESSION['name'])) {
  else { 
 
 
-$tem = file_get_contents('http://localhost/template.php');
+
+    echo '
+    
+    <ul>
+    <li><a href="loginpages.php">My profile</a></li>
+    <li><a href="http://localhost:81/functions/SteamCalculator.php">Level Calculator</a></li>
+    <li><a href="eee">Edit profile</a></li>
+    <li><a href="eeee">Forum</a></li>
+  </ul>
+
+
+  <style>
+
+  ul {
+    
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+      }
+      
+      li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+      
+      /* Change the link color on hover */
+      li a:hover {
+        background-color: #555;
+        color: white;
+      
+  }
+
+  </style>
+    
+    
+    
+    ';
+
+    echo  ' 
+    <form action="logout.php" method="POST">
+
+<button type="submit" name="logout-submit">Logout</button>
+
+
+
+
+</form>
+    
+    
+    ';
+
+
+$tem = file_get_contents('http://localhost:81/template.php');
 
 
 
