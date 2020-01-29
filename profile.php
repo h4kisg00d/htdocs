@@ -57,9 +57,9 @@ if (!isset($_SESSION['name'])) {
     
     
     
-    ';
+   
 
-    echo  ' 
+
     <form action="logout.php" method="POST">
 
 <button type="submit" name="logout-submit">Logout</button>
@@ -68,9 +68,181 @@ if (!isset($_SESSION['name'])) {
 
 
 </form>
+<button name="edit" id="edit"  onclick="show()" class="edit">Edit profile</button>
+
+
+
+<script>
+
+
+function show() {
+
+    
+
+    var ja = document.getElementById("main1").style.display;
+    var ja2 = document.getElementById("main2").style.display;
+    var ja3 = document.getElementById("edit").innerHTML;
+  
+
+    if ( ja == ""  && ja2 == "" && ja3 == "Edit profile") {
+        document.getElementById("main1").style.display = "block";
+    document.getElementById("main2").style.display = "block";
+    document.getElementById("edit").innerHTML = "Close edit";
+
+    }
+
+    else if ( ja == "block" && ja2 =="block"  )  {
+
+        document.getElementById("main1").style.display = "";
+        document.getElementById("main2").style.display = "";
+
+        document.getElementById("edit").innerHTML = "Edit profile";
+
+    }
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+.edit {
+
+
+    background-color:black;
+    color:red;
+
+
+}
+
+</style>
+
+
+
+
+
+<form method="POST">
+
+<textarea id="main1" class="main1" name="biocontent"></textarea>
+
+
+<button id="main2" class="main2" type="submit" id="submit"  name="submit-profile">Submit profile changes</button>
+
+
+
+<style>
+
+
+ .main1 {
+
+    display:none;
+ }
+
+ .main2 {
+
+    display:none;
+ }
+
+
+
+</style>
+
+</form>
+
+
+
+
+
+
+
+
     
     
     ';
+require 'changebio.php';
+
+  
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
+$link = mysqli_connect("localhost", "root", "", "loginsystem");
+
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+
+
+$myusername2 = $_SESSION['name'];
+
+
+
+
+$stmt = mysqli_stmt_init($link);
+
+if (mysqli_stmt_prepare($stmt, 'SELECT uidUsers, pwdUsers,Bio FROM users WHERE uidUsers=?')) {
+
+
+    mysqli_stmt_bind_param($stmt, "s", $myusername2);
+
+
+    mysqli_stmt_execute($stmt);
+
+    
+   
+    mysqli_stmt_bind_result($stmt,$username9,$passwordUser,$bio);
+
+   
+   
+
+    while (mysqli_stmt_fetch($stmt)){
+    echo $username9 . " ";
+    echo $passwordUser;
+    echo "<br>";
+   
+}
+
+
+  
+
+    
+
+    
+
+
+   
+    
+    // working
+    mysqli_stmt_close($stmt);
+
+
+
+    
+    
+
+
+}
+
+
+
+
+
+
 
 
 $tem = file_get_contents('http://localhost:81/template.php');
@@ -94,11 +266,16 @@ $tem = file_get_contents('http://localhost:81/template.php');
 
 
 
-echo $replaced;
-
+//$replaced2 = str_replace('Bioherekey',)
 
 
 // retrieve contents of said file
+
+
+$replace2 = str_replace('Bioherekey',"<p>" . $bio . "</p>",$replaced);
+
+
+echo $replace2;
 
  }
 ?>
