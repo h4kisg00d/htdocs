@@ -21,6 +21,8 @@
     require 'functions/check.php'; // requiring the file
     require 'loginpages.php'; // require the file
 
+    
+
 
     if (isset($_POST['Signup'])) {
 

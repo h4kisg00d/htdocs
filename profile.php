@@ -60,6 +60,13 @@ if (!isset($_SESSION['name'])) {
    
 
 
+  <form action="functions/uploadfile.php" method="POST" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit-upload">
+</form>
+
+
     <form action="logout.php" method="POST">
 
 <button type="submit" name="logout-submit">Logout</button>
@@ -172,6 +179,8 @@ function show() {
     
     
     ';
+
+    require 'functions/uploadfile.php';
 require 'changebio.php';
 
   
@@ -279,3 +288,6 @@ echo $replace2;
 
  }
 ?>
+
+
+

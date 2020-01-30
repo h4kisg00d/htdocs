@@ -41,6 +41,10 @@ function createuser($loginname,$newpassword) {
     $result = mysqli_query($conn,$sql1);
 
 
+    //$sql1 = "INSERT INTO uploads (Filename, Profile, UID ) "
+
+    //VALUES ('".$loginname."','".$newpassword."','');
+
     echo "test";
 
     }
