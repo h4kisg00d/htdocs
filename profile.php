@@ -60,7 +60,7 @@ if (!isset($_SESSION['name'])) {
    
 
 
-  <form action="functions/uploadfile.php" method="POST" enctype="multipart/form-data">
+  <form action="uploadtest.php" method="POST" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit-upload">
@@ -180,7 +180,7 @@ function show() {
     
     ';
 
-    require 'functions/uploadfile.php';
+    require 'uploadtest.php';
 require 'changebio.php';
 
   
