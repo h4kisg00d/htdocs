@@ -15,7 +15,7 @@ if (isset($_POST['loginbutton'])) {
 
     $inputname = $_POST['username2'];
     $inputpass = $_POST['password2']; // assign values of input to individual variables
-
+    
 
 
     $sql = 'SELECT * FROM users WHERE uidUsers="Testingo" AND pwdUsers="CRYPTCODE"';
@@ -51,7 +51,17 @@ if (isset($_POST['loginbutton'])) {
             echo "Found user";
 
 
+
+            $idhere = $row['id'];
+
+
+
             $_SESSION['name']  = $inputname;
+            $_SESSION['id'] = $idhere;
+
+
+            // creating a session with the id store
+            
 
             session_start();
 
