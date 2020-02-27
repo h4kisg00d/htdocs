@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0 ) {
         
         div {
             width: 500px;
-            height: -150px;
+            height: -130px;
             border: 11px solid white;
             padding: 50px;
             margin: 10px;
