@@ -3,7 +3,26 @@
 <head>
 
 
-<body>
+<body class="testing" style="background-color:black; color:white; font-size:15px;">
+
+
+<style>
+
+    a:link {
+
+
+        color:white;
+        font-size:15px;
+    }
+
+
+    </style>
+
+
+
+<h1> GENERAL DISCUSSION </h1>
+
+
 
 
 
@@ -13,7 +32,7 @@
 
 
 
-<p> Board name </p>
+<p> Create a new post </p>
 
 
 <br>
@@ -28,7 +47,7 @@
 
 
 <br>
-<button type="submit" name="submit">Create new board</button>
+<button type="submit" name="submit">Create new post</button>
 
 
 
@@ -38,7 +57,7 @@
 <h1> General discussion</h1>
 
 
-<p style="color:blue;">Posts created</p>
+<p style="color:white;">Posts created</p>
 
 </body>
 
@@ -68,6 +87,9 @@ $conn = new mysqli($servername,$username,$password,$dbname);
 if (isset($_POST['submit'])) {
 
 
+
+
+    $userId = $_SESSION['id'];
     $boardname = $_POST['board'];
 $bleh = $_POST['body'];
 
@@ -76,9 +98,13 @@ $bleh = $_POST['body'];
     //VALUES ('XD')";
 
     
-    $sql = "INSERT INTO boards (BoardTitle,Body)
-    VALUES ('" .$boardname . " ','" .$bleh . " ')";
+   // $sql = "INSERT INTO boards (BoardTitle,Body,userId)
+ //   VALUES ('" .$boardname . " ','" .$bleh . " ', )";
 
+
+
+ $sql = "INSERT INTO boards (BoardTitle,Body,userId)
+    VALUES ('" .$boardname . " ','" .$bleh . " ', ".$userId.")";
 
    if (mysqli_query($conn, $sql)) {
     

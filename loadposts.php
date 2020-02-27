@@ -32,7 +32,7 @@ $username = "root";
 $password = "";
 $dbname = "loginsystem";
 
-$conn = new mysqli($servername,$username,$password,$dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 
 //$sql = "SELECT * FROM posts
@@ -55,25 +55,19 @@ $sql = "SELECT * FROM posts";
 
 
 
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn, $sql);
 
 
 
-if ( mysqli_num_rows($result) > 0 ) {
+if (mysqli_num_rows($result) > 0) {
 
 
     while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-echo "<br>";
-echo "<p>". $row['Content']  . "</p>";
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
-
-
+        echo "<br>";
+   
     }
 }
 

@@ -25,17 +25,9 @@ if (isset($_POST['loginbutton'])) {
     $sqlza = str_replace("CRYPTCODE",$inputpass,$sql2);
 
 
-
-
-
-
-
-
-    // creating sesison
+    // creating session
     
     // querying the sql statement
-
-
 
 
     $result = mysqli_query($conn,$sqlza);
@@ -50,7 +42,7 @@ if (isset($_POST['loginbutton'])) {
 
             echo "Found user";
 
-
+        
 
             $idhere = $row['id'];
 
@@ -61,7 +53,7 @@ if (isset($_POST['loginbutton'])) {
 
 
             // creating a session with the id store
-            
+
 
             session_start();
 
@@ -73,8 +65,3 @@ if (isset($_POST['loginbutton'])) {
 
 
 }
-
-
-
-
-?>

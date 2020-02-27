@@ -1,4 +1,23 @@
 
+<html>
+
+
+<head>
+
+<body style="background-color:black; color:white;">
+
+
+</body>
+
+
+</head>
+
+
+
+
+</html>
+
+
 <?php
 
 
@@ -28,9 +47,34 @@ if (mysqli_num_rows($result) > 0) {
 
 
         echo "<h1>  </h1>";
-        echo "<h1>" . $row['BoardTitle'] . "</h1>";
+ 
 
-        echo "<p>" . $row['Body'] . "</p>";
+        echo '
+        
+      
+
+        <h1 style="font-size:90px;"> '.$row['BoardTitle'].' </h1>
+
+        <p style="font-size:50px;">'.$row['Body'].'</p>
+
+        
+
+        <style>
+
+        .bigg {
+        font-size:30px;
+
+        }
+
+
+        </style>
+
+        
+        
+        
+        ';
+
+
 
 
         echo ' 
@@ -38,18 +82,33 @@ if (mysqli_num_rows($result) > 0) {
         <form method="POST">
 
 
-        <button type="submit" name="reply">Reply</button>
+        <button  class="buttonreply" type="submit" name="reply">Reply</button>
+
+
+        <style>
+
+        .buttonreply {
+ 
+position:relative;
+            top: 2000px;
+            font-size:50px;
+            background-color:black;
+            color:white;
+            
+        
+        }
 
 
 
-        <p> Response </p>
+        </style>
+
+
 
         <br>
-        <input type="text" name="response" placeholder="Enter reply here">
+        <input style="position:relative; top:2000px; font-size:30px; type="text" name="response" placeholder="Enter reply here">
 
         
 
-<h1>XD</h1>
         </form>
         
         ';
@@ -67,10 +126,12 @@ session_start();
 
             $pol = $_SESSION['id'];
 
+            $board = $_GET['id'];
+
 
 $sql = '
 
-INSERT INTO posts (`Content`,`userId`) VALUES ("'.$posted.'",'.$pol.')
+INSERT INTO posts (`Content`,`userId`,`BoardId`) VALUES ("'.$posted.'",'.$pol.', '.$board.')
 
 
 

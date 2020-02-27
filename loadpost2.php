@@ -1,17 +1,18 @@
 
 
 
+
+
 <?php
 
 
 
 
 
-function one() {
 
 
    
-
+   
     
 
    
@@ -28,34 +29,88 @@ $conn = new mysqli($servername,$username,$password,$dbname);
 
 
 
-
-$sql = "SELECT * FROM users";
-
-
-$resultagain = mysqli_query($conn,$sql);
+$too = $_GET['id']; // get the id
 
 
+$sql = " SELECT u.uidUsers, p.Content, p.PostCount, p.userId, p.id FROM posts p inner join users u ON p.userId=u.id WHERE p.BoardId=".$too." ";
 
-if ( mysqli_num_rows($resultagain) > 0) {
 
 
-    while ($rowyes=  mysqli_fetch_assoc($resultagain)) {
+$result = mysqli_query($conn,$sql);
 
-        global $userid; // creating a global variable with an assigned value :)
-        global $numrows;
 
-        $userid= $rowyes['id'];
-        $numrows = mysqli_num_rows($resultagain); // obtain the number of rows for the iterator
+
+if ( mysqli_num_rows($result) > 0) {
+
+
+    while ($row=  mysqli_fetch_assoc($result)) {
+
+echo '
+<div>
+
+
+<h1> '.$row['uidUsers'].'</h1>
+
+
+
+
+
+
+</div>
+
+<style>
+
+div {
+    width: 100px;
+    height: -180px;
+    border: 11px solid white;
+    padding: 50px;
+    margin: 50px;
+    font-size:15px;
+  }
+
+  </style>
+
+
+  <div class="yes">
+
+  <p> '.$row['Content'].'</p>
+
+
+  </div>
+
+  <style>
+
+.yes {
+    width: 900px;
+    height: 180px;
+    border: 11px solid white;
+    padding: 50px;
+    margin: 50px;
+    font-size:30px;
+    left:400px;
+    top: -190px;
+    position:relative;
+  }
+
+  </style>
+
+
+
+
+
+
+
+';
+      
+     
 
        // echo $rowyes['uidUsers'];
         //echo "<br>";
     }
 
 
-}
-
-
-} // first function
+}// first function
 
 
 
@@ -64,57 +119,5 @@ if ( mysqli_num_rows($resultagain) > 0) {
 
 
 
-function two() {
 
-
-echo "this is";
-$servername=  "localhost";
-$username = "root";
-$password = "";
-$dbname = "loginsystem";
-
-$conn = new mysqli($servername,$username,$password,$dbname);
-
-
-
-
-
-
-for ($x = 0; $x <= $GLOBALS['numrows']; $x++) {
-
-// looping through an array
-
-
-$hello = array($GLOBALS['userid'])
-
-        while ($hello) {
-
-            
-
-        }
-    
-    
-
-}
-
-
-
-    
-
-
-// establishing connection yet again
-
-// using a select statement in order to retrieve the user
-
-// will be accessing the value assigned to the variable in the other function, accessing it's properties.
-
-
-
-
-}
-
-
-one();
-
-two();
 ?>
