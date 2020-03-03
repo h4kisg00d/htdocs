@@ -7,6 +7,7 @@
 
 
 
+require 'level-forum.php'; // other PHP file exists that deals with the levels
 
 
 
@@ -32,7 +33,7 @@ $conn = new mysqli($servername,$username,$password,$dbname);
 $too = $_GET['id']; // get the id
 
 
-$sql = " SELECT u.uidUsers, p.Content, p.PostCount, p.userId, p.id FROM posts p inner join users u ON p.userId=u.id WHERE p.BoardId=".$too." ";
+$sql = " SELECT u.uidUsers, u.Level, p.Content, p.PostCount, p.userId, p.id FROM posts p inner join users u ON p.userId=u.id WHERE p.BoardId=".$too." ";
 
 
 
@@ -50,6 +51,9 @@ echo '
 
 
 <h1> '.$row['uidUsers'].'</h1>
+
+<p> LEVEL IS  </p>
+<h1> '.$row['Level'].'</h1>
 
 
 

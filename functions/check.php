@@ -33,8 +33,12 @@ function createuser($loginname,$newpassword) {
     } else {
 
 
-    $sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio)
-    VALUES ('".$loginname."','".$newpassword."','');"; // SQL statement to be executed
+    //$sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio)
+    //VALUES ('".$loginname."','".$newpassword."','');"; 
+
+
+    $sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio,Level)
+    VALUES ('".$loginname."','".$newpassword."','',0);";  // retrieving the level of the user
 
 
 // adding bio
@@ -79,7 +83,7 @@ function loginuser($loginname,$loginpassword) {
     $le = str_replace("nametochange",$loginname,$sql);
 
 
-    $result = mysqli_query($le);
+    $result = mysqli_query($conn, $le);
 
 
 
