@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 
 session_start();
@@ -5,7 +9,6 @@ session_start();
 
 //echo $_SESSION['id'];
 
-echo "<br>";
 
 $servername = "localhost";
 $username = "root";
@@ -25,7 +28,7 @@ echo mysqli_num_rows($result) . " posts created on this board";
 
 if (mysqli_num_rows($result) > 0 ) {
 
-    
+    echo '<div class="post-list">';
     while ($row = mysqli_fetch_assoc($result)) {
 
 
@@ -70,4 +73,5 @@ if (mysqli_num_rows($result) > 0 ) {
 
 
 
+echo '</div>';
 ?>

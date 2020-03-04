@@ -1,29 +1,26 @@
 <html>
 
+<head>
 
 
 <link rel="stylesheet"  href="stylesheet/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
 
-
-<head>
 
 
 <body>
 
 
-
-
-
-
 <h1> GENERAL DISCUSSION </h1>
 
 
+<button onclick="createnew()">NEW DISCUSSION</button>
 
 
 
 
-
-<form method="POST">
+<form method="POST" id="newPost">
 
 
 
@@ -37,8 +34,9 @@
 
 
 
-<input type="text" name="board" placeholder="Enter board name...">
-<input type="text" name="body" placeholder="Enter content here..">
+<input class="board-name" type="text" name="board" placeholder="Enter board name...">
+<br>
+<textarea height="100" width="100" class="board-desc" type="text" name="body" placeholder="Enter content here.."></textarea>
 
 
 <br>
@@ -113,3 +111,12 @@ $bleh = $_POST['body'];
 
 
 ?>
+
+<script>
+
+$('#newPost').hide();
+
+function createnew() {
+    $('#newPost').slideToggle();
+}
+</script>

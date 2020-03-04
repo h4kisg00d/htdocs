@@ -100,4 +100,27 @@ border: solid white;
     flex-wrap: nowrap;
 }
 
-.posts {border:1px solid white;}
+.posts {border:1px solid white;
+width: 500px;
+align-self: center;}
+
+.post-list {
+
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
+
+}
+
+.board-name {
+background-color:black;
+color:white;
+width:600px;
+
+}
+
+.board-desc {
+width:600px;
+height:600px;
+}
