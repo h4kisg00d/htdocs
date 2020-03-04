@@ -22,9 +22,7 @@ $result = mysqli_query($conn,$sql);
 echo mysqli_num_rows($result) . " posts created on this board";
 
 
-echo "<br>";
 
-echo "<br>";
 if (mysqli_num_rows($result) > 0 ) {
 
     
@@ -32,47 +30,21 @@ if (mysqli_num_rows($result) > 0 ) {
 
 
 
-        echo ' <div>
-
+        echo ' 
       
-        <h1> '.$row['uidUsers'].'</h1>
-        
-        <a href="post.php?id='.$row['id'].'">' . $row['BoardTitle'] . '</a>
-        
-        
-        
-        
-        </div>
-        
-        <style>
-        
-        div {
-            width: 500px;
-            height: -130px;
-            border: 11px solid white;
-            padding: 50px;
-            margin: 10px;
-            font-size:10px;
-          }
-        
-          </style>
-          
 
-          <div class="olo">
-          <p> '.$row['uidUsers'].'</p>
-          </div>
-
-
-          <style>
-
-          .olo {
-
-            position:relative;
-            top:30px;
-
-          }
-
-          </style>
+       
+        
+        <div class="posts">
+        
+        <h1> <a class="forum-name" href="post.php?id='.$row['id'].'">' . $row['BoardTitle'] . ' </h1> </a>
+        
+        <h2 class="forum-username"> '.$row['uidUsers'].'</h2> </div>
+        
+        
+      
+        
+      
 
 
         

@@ -1,22 +1,17 @@
 <html>
 
+
+
+<link rel="stylesheet"  href="stylesheet/style.css">
+
+
 <head>
 
 
-<body class="testing" style="background-color:black; color:white; font-size:15px;">
+<body>
 
 
-<style>
 
-    a:link {
-
-
-        color:white;
-        font-size:15px;
-    }
-
-
-    </style>
 
 
 
