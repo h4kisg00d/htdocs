@@ -66,7 +66,7 @@ if (mysqli_num_rows($result) > 0) {
 <body>
 
 
-<link rel="stylesheet" type="text/css" href="https://steamcommunity-a.akamaihd.net/public/shared/css/shared_global.css?v=UJJ11NMc709K&l=english">
+<link rel="stylesheet" type="text/css" href="http://localhost:81/stylesheet/Level.css">
 
 
 

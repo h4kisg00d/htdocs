@@ -4,10 +4,9 @@
 
 <head>
 
-<body style="background-color:black; color:white;">
 
 
-</body>
+<link rel="stylesheet"  href="stylesheet/style.css">
 
 
 </head>
@@ -53,9 +52,9 @@ if (mysqli_num_rows($result) > 0) {
         
       
 
-        <h1 style="font-size:90px;"> '.$row['BoardTitle'].' </h1>
+        <h1 class="title" style="font-size:90px;"> '.$row['BoardTitle'].' </h1>
 
-        <p style="font-size:50px;">'.$row['Body'].'</p>
+        <p class="body" style="font-size:50px;">'.$row['Body'].'</p>
 
         
 
@@ -79,37 +78,7 @@ if (mysqli_num_rows($result) > 0) {
 
         echo ' 
         
-        <form method="POST">
 
-
-        <button  class="buttonreply" type="submit" name="reply">Reply</button>
-
-
-        <style>
-
-        .buttonreply {
- 
-position:relative;
-            top: 2000px;
-            font-size:50px;
-            background-color:black;
-            color:white;
-            
-        
-        }
-
-
-
-        </style>
-
-
-
-        <br>
-        <input style="position:relative; top:2000px; font-size:30px; type="text" name="response" placeholder="Enter reply here">
-
-        
-
-        </form>
         
         ';
 
@@ -158,13 +127,27 @@ header("Location: http://localhost:81/post.php?id=".$testa." ");
 }
 
 
-
-require 'loadposts.php';
-
 require 'loadpost2.php';
 
 
 
+echo '        <form method="POST">
 
+<textarea class="response-box" type="text" name="response" placeholder="Enter reply here"></textarea>
+
+<button  class="button-reply" type="submit" name="reply">Reply</button>
+
+
+
+
+
+
+
+
+
+
+
+
+</form>';
 
 ?>

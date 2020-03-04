@@ -47,57 +47,31 @@ if ( mysqli_num_rows($result) > 0) {
     while ($row=  mysqli_fetch_assoc($result)) {
 
 echo '
+<div class="reply-container">
 <div>
-
-
-<h1> '.$row['uidUsers'].'</h1>
-
-<p> LEVEL IS  </p>
-<h1> '.$row['Level'].'</h1>
+<h1 class="username"> '.$row['uidUsers'].'</h1>
 
 
 
 
 
+
+<p> Users level is</p>
+
+
+<span><h1 class="level-forum"> '.$row['Level'].'</h1></span>
 
 </div>
 
-<style>
-
-div {
-    width: 100px;
-    height: -180px;
-    border: 11px solid white;
-    padding: 50px;
-    margin: 50px;
-    font-size:15px;
-  }
-
-  </style>
 
 
-  <div class="yes">
+ <div>
 
-  <p> '.$row['Content'].'</p>
+  <p class="reply-content"> '.$row['Content'].'</p>
 
-
+</div>
   </div>
 
-  <style>
-
-.yes {
-    width: 900px;
-    height: 180px;
-    border: 11px solid white;
-    padding: 50px;
-    margin: 50px;
-    font-size:30px;
-    left:400px;
-    top: -190px;
-    position:relative;
-  }
-
-  </style>
 
 
 
