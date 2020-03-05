@@ -42,10 +42,7 @@ session_start();
 <form action="logout.php" method="POST">
     
 
-
-
 </form>
-
 
 
 </body>
@@ -54,12 +51,7 @@ session_start();
 </head>
 
 
-
-
 </html>
-
-
-
 
 <?php
 
@@ -98,12 +90,6 @@ if (mysqli_num_rows($result) > 0) {
 
         $_SESSION["name"] = $username1;
 
-
-
-
-       
-
-        
 
        }
 

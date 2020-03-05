@@ -2,9 +2,6 @@
 
 <?php
 
-
-require 'levels.php';
-
 require 'dbh.php'; // require connection to the database
 
 

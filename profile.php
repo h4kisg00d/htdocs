@@ -2,7 +2,7 @@
 
 
 <?php
-
+// profile PHP file
 
 session_start(); // start the session
 
@@ -11,12 +11,10 @@ if (!isset($_SESSION['name'])) {
 
 
 
-    // if the session "name" is not found then send the user back
+    // if the session called "name" is not found then send the user back
     echo "Nope";
 }
  else { 
-
-
 
     echo '
     
@@ -24,7 +22,7 @@ if (!isset($_SESSION['name'])) {
     <li><a href="loginpages.php">My profile</a></li>
     <li><a href="http://localhost:81/functions/SteamCalculator.php">Level Calculator</a></li>
     <li><a href="eee">Edit profile</a></li>
-    <li><a href="eeee">Forum</a></li>
+    <li><a href="forum.php">Forum</a></li>
   </ul>
 
 
@@ -55,10 +53,6 @@ if (!isset($_SESSION['name'])) {
 
   </style>
     
-    
-    
-   
-
 
   <form action="uploadtest.php" method="POST" enctype="multipart/form-data">
     Select image to upload:
@@ -114,15 +108,6 @@ function show() {
 </script>
 
 
-
-
-
-
-
-
-
-
-
 <style>
 
 
@@ -169,15 +154,6 @@ function show() {
 
 </form>
 
-
-
-
-
-
-
-
-    
-    
     ';
 
     require 'uploadtest.php';
@@ -192,7 +168,7 @@ $link = mysqli_connect("localhost", "root", "", "loginsystem");
 
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
+    exit(); // check whether or not the initial connection request to the database failed.
 }
 
 
@@ -216,12 +192,12 @@ if (mysqli_stmt_prepare($stmt, 'SELECT uidUsers, pwdUsers,Bio FROM users WHERE u
    
     mysqli_stmt_bind_result($stmt,$username9,$passwordUser,$bio);
 
-   
+   // using prepared statements upon user registration for more security.
    
 
     while (mysqli_stmt_fetch($stmt)){
-    echo $username9 . " ";
-    echo $passwordUser;
+    //echo $username9 . " ";
+    //echo $passwordUser;
     echo "<br>";
    
 }

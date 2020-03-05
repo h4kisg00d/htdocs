@@ -1,122 +1,20 @@
-<html>
-
-<head>
-
-
-<link rel="stylesheet"  href="stylesheet/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-
-
-
-<body>
-
-
-<h1> GENERAL DISCUSSION </h1>
-
-
-<button onclick="createnew()">NEW DISCUSSION</button>
-
-
-
-
-<form method="POST" id="newPost">
-
-
-
-<p> Create a new post </p>
-
-
-<br>
-
-
-
-
-
-
-<input class="board-name" type="text" name="board" placeholder="Enter board name...">
-<br>
-<textarea height="100" width="100" class="board-desc" type="text" name="body" placeholder="Enter content here.."></textarea>
-
-
-<br>
-<button type="submit" name="submit">Create new post</button>
-
-
-
-
-</form>
-
-<h1> General discussion</h1>
-
-
-<p style="color:white;">Posts created</p>
-
-</body>
-
-
-
-</head>
-
-
-
-
-</html>
-
-
-
 <?php
+// code below is used for testing whether or not the user is currently authenticated or not
+session_start();
 
-require 'require.php';
+if (!isset($_SESSION['id'])) {
 
-
-$servername=  "localhost";
-$username = "root";
-$password = "";
-$dbname = "loginsystem";
-$conn = new mysqli($servername,$username,$password,$dbname);
-
-
-if (isset($_POST['submit'])) {
-
-
-
-
-    $userId = $_SESSION['id'];
-    $boardname = $_POST['board'];
-$bleh = $_POST['body'];
-
-
-    //$sql = "INSERT INTO boards (BoardTitle)
-    //VALUES ('XD')";
-
-    
-   // $sql = "INSERT INTO boards (BoardTitle,Body,userId)
- //   VALUES ('" .$boardname . " ','" .$bleh . " ', )";
-
-
-
- $sql = "INSERT INTO boards (BoardTitle,Body,userId)
-    VALUES ('" .$boardname . " ','" .$bleh . " ', ".$userId.")";
-
-   if (mysqli_query($conn, $sql)) {
-    
-    header("Location: forum.php");
+    echo "Sorry but you must be logged in to view this content";   // authentication test for the forum
+    echo '<p> Please use the login system to ensure that you are logged in to our system.  ';
+    echo '<br>';
+    echo '<img src="images/unnamed.jpg" width="150" height="100">';
+    // if the user is not already authenticated then they see an error message displayed that informs them of this.
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    require 'require/requiremain.php'; // requiremain is a PHP file which is used to  executed all the PHP code responsible for the forum page, such as displaying the boards,
+    // the names of the users who created them, etc.
+    
+
 }
-
-
-}
-
 
 ?>
 
-<script>
-
-$('#newPost').hide();
-
-function createnew() {
-    $('#newPost').slideToggle();
-}
-</script>

@@ -49,8 +49,6 @@ if (mysqli_num_rows($result) > 0) {
  
 
         echo '
-        
-      
 
         <h1 class="title" style="font-size:90px;"> '.$row['BoardTitle'].' </h1>
 
@@ -67,9 +65,6 @@ if (mysqli_num_rows($result) > 0) {
 
 
         </style>
-
-        
-        
         
         ';
 
@@ -106,9 +101,6 @@ INSERT INTO posts (`Content`,`userId`,`BoardId`) VALUES ("'.$posted.'",'.$pol.',
 
 ';
 
-
-
-
 $testa = $_GET['id'];
 
 
@@ -136,17 +128,6 @@ echo '        <form method="POST">
 <textarea class="response-box" type="text" name="response" placeholder="Enter reply here"></textarea>
 
 <button  class="button-reply" type="submit" name="reply">Reply</button>
-
-
-
-
-
-
-
-
-
-
-
 
 </form>';
 

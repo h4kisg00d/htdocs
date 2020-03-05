@@ -5,18 +5,7 @@
 
 <?php
 
-
-
 require 'level-forum.php'; // other PHP file exists that deals with the levels
-
-
-
-
-   
-   
-    
-
-   
 
 $servername = "localhost";
 $username = "root";
@@ -36,10 +25,7 @@ $too = $_GET['id']; // get the id
 $sql = " SELECT u.uidUsers, u.Level, p.Content, p.PostCount, p.userId, p.id FROM posts p inner join users u ON p.userId=u.id WHERE p.BoardId=".$too." ";
 
 
-
 $result = mysqli_query($conn,$sql);
-
-
 
 if ( mysqli_num_rows($result) > 0) {
 
@@ -81,21 +67,11 @@ echo '
 
 ';
       
-     
-
        // echo $rowyes['uidUsers'];
         //echo "<br>";
     }
 
 
 }// first function
-
-
-
-
-
-
-
-
 
 ?>
