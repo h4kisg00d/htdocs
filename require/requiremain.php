@@ -68,14 +68,27 @@ if (isset($_POST['submit'])) {
     // $sql = "INSERT INTO boards (BoardTitle,Body,userId)
     //   VALUES ('" .$boardname . " ','" .$bleh . " ', )";
 
-
-
     $sql = "INSERT INTO boards (BoardTitle,Body,userId)
-    VALUES ('" . $boardname . " ','" . $bleh . " ', " . $userId . ")";
+    VALUES ('" . $boardname . " ','" . $bleh . " ', " . $userId . ");";
+    mysqli_query($conn,$sql);
 
-    if (mysqli_query($conn, $sql)) {
 
-        header("Location: forum.php"); // referencing an id
+    $sql = "SELECT * FROM boards where BoardTitle = '".$boardname."'Order by id desc limit 1;";
+    echo $sql;
+    $result = mysqli_query($conn,$sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+
+            echo $row['id'];
+            echo '<script> document.location.href="post.php?id='.$row['id'].'"</script>;';
+    // used for displaying the names of the posts created by users and the users who created them.
+    
+        }
+        
+
+
+        
+        
         exit();
     } else {
        // echo "Error: " . $sql . "<br>" . mysqli_error($conn);

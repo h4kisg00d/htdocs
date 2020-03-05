@@ -1,5 +1,3 @@
-
-
 <?php
 
 require 'dbh.php'; // require connection to the database
@@ -21,33 +19,12 @@ if (mysqli_num_rows($result) > 0) {
 
     while ($row = mysqli_fetch_assoc($result)) {
 
-//$mainlevel = 135;
+
 //https://stackoverflow.com/questions/44151874/how-to-iterate-over-json-object-in-python-containing-dictionary-and-list
 
 
-//$levelhund = substr($mainlevel,1);
-
-//$levelhundmain  = $mainlevel - $levelhund;
-
-//echo $levelhundmain;
 
 
-
-
-        
-
-     // $html1 =  '<div class="friendPlayerLevel lvl_5000 lvl_plus_0"><span class="friendPlayerLevelNum">5000</span></div>';
-
-
-     // $htmlrepl = str_replace('numhund',$levelhundmain,$html1);
-
-      //echo $htmlrepl;
-
-
-
-
-
-       
 
     }
 }
@@ -66,14 +43,7 @@ if (mysqli_num_rows($result) > 0) {
 <link rel="stylesheet" type="text/css" href="http://localhost:81/stylesheet/Level.css">
 
 
-
-
-
-
-
 </body>
-
-
 
 </head>
 

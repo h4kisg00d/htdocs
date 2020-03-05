@@ -20,7 +20,7 @@ $user =  json_decode($data);
 
 echo $user->name; // the user will be H4k as that is what is being retrieved upon decoding the JSON data
 echo "<span>"; 
-echo ", your level is "  . $user->Level . "</span>"; // echo out the data :D
+echo ", your level is "  . $user->Level . "</span>"; 
 echo "<br>";
 
 $myfile = fopen("Testingg.php", "w"); // open the file to write
