@@ -1,7 +1,9 @@
 
 
-<?php
 
+<?php
+// used for calculations
+// uses a stylesheet too
 if (!isset($_SESSION['name'])) {
 
 
@@ -223,7 +225,14 @@ if (isset($_POST['button1'])) {
  if ($level < 999) {
  
  
-     $stored =  '<div style="position:relative; left:280px;top:110px;"  class="friendPlayerLevel lvl_numhund lvl_plus_numplus"><span class="friendPlayerLevelNum">mainw</span></div>';
+     $stored =  '
+     
+     <div class="level-container">
+     
+     <div style="position:relative; left:280px;top:110px;"  class="friendPlayerLevel lvl_numhund lvl_plus_numplus"><span class="friendPlayerLevelNum">mainw</span></div>
+     
+     
+     ';
  
  
      $numbhun  = substr($level,1,2);
