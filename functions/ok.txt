@@ -1,0 +1,25 @@
+foreach ($testJson as $item){
+    foreach ($item as $key => $value){
+        
+        if(is_array($value)){
+            foreach ($value as $innerKey => $innerValue){                
+                echo $innerKey . " =>" . $innerValue . "<br>";
+
+            }
+        }
+        else{            
+            echo $key . " =>" . $value . "<br>";
+
+            if ($key == "content" && $value == "hahahaha" ) {
+                echo"<br><br>";
+                echo $index;
+                echo"<br><br>";
+            }
+        }
+        $innerIndex = $innerIndex +1;
+    }
+        echo"<br><br>";
+        $index = $index +1;
+
+
+}

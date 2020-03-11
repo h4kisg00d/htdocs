@@ -1,0 +1,28 @@
+/** {border: 1px solid red;} */
+/** This a stylesheet for the forum and other elements of the site, it is referenced in HTML */
+
+.styling {
+
+    width:150px;
+    height:150px;
+    background-color:black;
+    color:white;
+    font-size:50px;
+
+}
+
+
+.styling2 {
+width:150px;
+height:150px;
+background-color:black;
+color:white;
+font-size:50px;
+}
+
+.button {
+    background-color:black;
+    color:white;
+    font-size:20px;
+}
+

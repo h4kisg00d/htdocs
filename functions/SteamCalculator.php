@@ -1,375 +1,200 @@
-
-
-
 <?php
-// used for calculations
-// uses a stylesheet too
-if (!isset($_SESSION['name'])) {
+
+// utilises API interactivity
+
+require '../require/checksteam.php';
+?>
 
 
+<html>
 
-    echo  ' 
-    <html>
+<body style="background-color:black;color:white;">
 
 <head>
-
 <body>
-
-<link rel="stylesheet" type="text/css" href="https://steamcommunity-a.akamaihd.net/public/shared/css/shared_global.css?v=UJJ11NMc709K&l=english">
-
-
-
-
-
-<style>
-
-
-
-
-
-
-</style>
-
-
-
-
-<style>
-
-body {
-max-width: 500px;
-  margin: auto;
-
-  background-color:black;
-
-}
-</style>
-
-
-<div id="header" class="header">
-
-<h1> Steam Level calculator </h1>
-
-
-
-<style>
-
-
-.header {
-color:white;
-
-}
-</style>
-
-
-
-
-</div>
-
-
-<div id="paragraph1" class="paragraph1">
-
-<p> This is a tool used for calculating information in regards to a desired Steam level. Enter your level below to work out the number of sets and other information regarding a desired Steam level. It will also specify 
-the average price for the Steam level too. </p>
-
-<style>
-
-.paragraph1 {
-color:white;
-}
-</style>
-
-
-
-</div>
-
-
-
-<div id="buttonsection" class="buttonsection">
-
-
-
-
-
-<form method="POST">
-
-<input type="text" placeholder="Enter level here" name="level" id="level" class="level">
-
-<button id="button1" type ="submit" name="button1" class="button1"> Calculate</button>
-
-
-<style>
-
-.button1 {
-
-background-color:black;
-color: white;
-position:relative;
-top: 160px;
-left: -20px;
-
-}
-
-</style>
-
-
-
-<style>
-
-
-.level {
-
-    position:relative;
-    left:100px;
-    top: 90px;
-}
-
-</style>
-
-</form>
-
-
-
-
-
-</div>
-
-
 
 </body>
 
+<link rel="stylesheet" type="text/css" href="/../stylesheet/replication.css">
+
+
+<p> Get current level </p>
+
+<form method="POST">
+    <input type="text" name="steamuser" class="userstyle" placeholder="Enter username here">
+<button class="button" type="submit" name="getcur">Get current level</button>
+<input id="current" class="styling" placeholder="Cur" type="text" readonly name="current">
+
+<input class="styling2" placeholder="Des" type="text" name="desired">
+</form>
+
 
 </head>
+</html>
+
+<?php
 
 
 
-</html>';
+// used for calculations
+// uses a stylesheet too
+// require check
 
 
 
-if (isset($_POST['button1'])) {
 
+
+    // check
+
+    if (isset($_POST['getcur'])) {
+
+        $current  = $_POST['current'];
+        $desired = $_POST['desired']; 
+        $steamuser = $_POST['steamuser']; // get the name of user
+        
+
+        $url = 'https://stc-price.appspot.com/UserInfo?id='.$steamuser.'';
+        
+        $data = '
+        {
+            "content":"0"
+        }
+        ';
+        
+        $additional_headers = array(                                                                          
+           'Host: stc-price.appspot.com'
+        );
+        
+        $ch = curl_init($url);                                                                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                     
+        //curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $additional_headers); 
+        
+        $server_output = curl_exec ($ch);
+        
+        //echo  $server_output;
+        echo"<br><br>";
+        
+        $testJson = json_decode($server_output,true);
+        
+        echo"<br><br>";
+        
+        $index = 0;
+        $innerIndex = 0;
+        
+        $retrieved_level = $testJson["level"];  // store the retrieved level into a variable
+
+        echo '<script> document.getElementById("current").value = "'.$retrieved_level.'" </script>';
+
+
+        // interact with another API
+
+
+         $url = 'https://stc-price.appspot.com/UserInfo?id='.$steamuser.'';
+        
+        $data = '
+        {
+            "content":"0"
+        }
+        ';
+        
+        $additional_headers = array(                                                                          
+           'Host: stc-price.appspot.com'
+        );
+        
+        $ch = curl_init($url);                                                                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                     
+        //curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $additional_headers); 
+        
+        $server_output = curl_exec ($ch);
+        
+        //echo  $server_output;
+        echo"<br><br>";
+        
+        $testJson = json_decode($server_output,true);
+        
+        echo"<br><br>";
+        
+        $index = 0;
+        $innerIndex = 0;
+        
+        $retrieved_level = $testJson["level"];  // store the retrieved level into a variable
+
+
+// stor
+
+// calculate :)
+
+
+
+        $url = 'https://steamlevelcalculator.com/ajax_card_calc.php';
+        
+        $data = 'level='.$current.'&desired_level='.$desired.'&card_amount=11&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05&cards%5B%5D=0.05';
+
+
+        
+        $additional_headers = array(                                                                          
+           'Host: steamlevelcalculator.com',
+           'X-Requested-With: XMLHttpRequest',
+           'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'
+           
+        );
+        
+        $ch = curl_init($url);                                                                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $additional_headers); 
+        
+        $server_output = curl_exec ($ch);
+        
+        //echo  $server_output;
+        echo"<br><br>";
+        
+        $testJson = json_decode($server_output,true);
+        
+        echo"<br><br>";
+        
+        $index = 0;
+        $innerIndex = 0;
+        
+        $retrieved_xp= $testJson["xp_to_obtain"];  // store the retrieved level into a variable
+        $total_price = $testJson["total_amount"]; // store the total amount into a variable
+
+    $xpretrieved =  $retrieved_xp;
+    $totalretrieved = $total_price;
+
+    $totalretrievedformat=  number_format($totalretrieved);
+
+    echo 'You will require!';
+
+    echo '<br>';
+
+echo '
+
+<div class="container">
+
+<input id="calculated" style="width:340px;height:50px; border:solid white; padding:left; font-size:30px; background-color:black; color:white;" type="text" name="calculatedxp" readonly placeholder="          XP" </input>
+
+</div>
+
+
+
+';
+
+echo ' <script> document.getElementById("calculated").value = "'.$retrieved_xp.'         XP"</script>';
+
+echo '<h1 style="color:white;"' . '>AT A ROUGH COST OF<' . '/h1>';
+
+echo '<input id="calculatedcost" style="width:340px;height:50px; border:solid white; padding:left; font-size:30px; background-color:black; color:white;" readonly type="text" name="calculatedxp" placeholder="$" </input>';
+echo ' <script> document.getElementById("calculatedcost").value = "$'.$totalretrievedformat.'"</script>';
+
+// system complete :D
+        }
 
 
 
     
-
-
-    echo '<p style="color:white;position:relative;left:80px;top:150px;">Information regarding sets below</p>';
- 
- 
-    // now working out the information regarding level
- 
-    $level = $_POST['level'];
-    // get the level
- 
-    $x = floor($level / 10);
- $y = $level % 10;
- $ze =  500 * ( $x ** 2 + $x ) + ( $y * ( 100 * $x + 100 ) );
- 
- $xpvalue = $ze;
- 
- $format = number_format($xpvalue);
- 
- $string = '<p style="color:white;position:relative;top:150px;">You will need TEEHEE XP to reach level</p>';
- 
- $replace = str_replace('TEEHEE',$format,$string);
- 
- 
- 
- 
- // more info
- 
- 
- $setworked = $xpvalue /100;
- 
- $setf = number_format($setworked);
- 
- 
- 
- $stringset = '<p style="color:white;position:relative;top:150px;">You will need HAEHa sets of trading cards to reach this level</p>';
- 
- $lp = str_replace('HAEHa',$setf,$stringset);
- 
- echo $lp;
- 
- 
- 
- // pricing
- 
- $setworked1 = $level/100  *3 *$level;
- 
- //$setf1 = number_format($setworked);
- 
- 
- $finae = number_format($setworked1);
- 
- $stringset1 = '<p style="color:white;position:relative;top:150px;">That will be a total price of $BLEHBLEHBLEH</p>';
- 
- $lp1 = str_replace('BLEHBLEHBLEH',$finae,$stringset1);
- 
- echo $lp1;
- 
- 
- 
- 
- 
- 
- if ($level < 999) {
- 
-     echo $replace;
-     
- }
- 
- 
- 
- if ($level < 999) {
- 
- 
-     $stored =  '
-     
-     <div class="level-container">
-     
-     <div style="position:relative; left:280px;top:110px;"  class="friendPlayerLevel lvl_numhund lvl_plus_numplus"><span class="friendPlayerLevelNum">mainw</span></div>
-     
-     
-     ';
- 
- 
-     $numbhun  = substr($level,1,2);
- 
-     
-     $numhunn = $level - $numbhun;
- 
- 
-     $actualnumber = $level;
- 
- 
- 
-     $levelpluss = substr($level,2);
- 
- 
-     $zed = $levelpluss;
- 
-     
-     $numberpluss = $actualnumber - $zed;
- 
- 
-     $tada =  substr($numberpluss,1,2);
- 
- 
- 
- 
- 
-     $replace1 = str_replace('numhund',$numhunn,$stored);
- 
-     $replace2=  str_replace('mainw',$actualnumber,$replace1);
- 
-     $replace3 = str_replace('numplus',$tada,$replace2);
-     echo $replace3;
- 
-   
- 
-     
- 
- 
- 
-  
- 
- 
- } else {
- 
- 
-     
- 
- 
-     // now working out the information regarding level
-  
-     $level = $_POST['level'];
-     // get the level
-  
-     $x = floor($level / 10);
-  $y = $level % 10;
-  $ze =  500 * ( $x ** 2 + $x ) + ( $y * ( 100 * $x + 100 ) );
-  
-  $xpvalue = $ze;
-  
-  $format1 = number_format($xpvalue);
-  
-  $string1 = '<p style="color:white;position:relative;top:150px;">You will need TEEHEE XP to reach level</p>';
-  
-  $replace1 = str_replace('TEEHEE',$format1,$string1);
-  
-  echo $replace1; // 
-  
-  
-  
- 
- 
- 
-  
-  
-  
-      $stored1 =  '<div style="position:relative; left:280px;top:110px;"  class="friendPlayerLevel lvl_numhund lvl_plus_numplus"><span class="friendPlayerLevelNum">mainw</span></div>';
-  
-  
-      $numbhun1  = substr($level,2,3);
-  
-      
-      $numhunn1 = $level - $numbhun1;
-  
-  
-      $actualnumber1 = $level;
-  
-  
-  
-      $levelpluss1 = substr($level,3);
-  
-  
-      $zed1 = $levelpluss1;
-  
-      
-      $numberpluss1 = $actualnumber1 - $zed1;
-  
-  
-      $tada1 =  substr($numberpluss1,2,4);
-  
-  
-  
-  
-  
-      $replace11 = str_replace('numhund',$numhunn1,$stored1);
-  
-      $replace21=  str_replace('mainw',$actualnumber1,$replace11);
-  
-      $replace31 = str_replace('numplus',$tada1,$replace21);
-      echo $replace31;
- 
- 
- }
- 
- 
- }
- 
-
-
-} else {
-
-
-    echo "FOOBAR";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

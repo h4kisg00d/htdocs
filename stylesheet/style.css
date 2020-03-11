@@ -1,5 +1,7 @@
 /** {border: 1px solid red;} */
 /** This a stylesheet for the forum and other elements of the site, it is referenced in HTML */
+
+
 body {
 overflow-wrap: break-word;
 background-color:black;
@@ -129,3 +131,4 @@ height:600px;
     margin-top:5px;
     padding:left;
 }
+
