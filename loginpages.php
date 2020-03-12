@@ -36,6 +36,11 @@ if (!isset($_SESSION['name'])) {
     <input type="password" name="password2" placeholder="Enter password">
     
     <button type="submit" name="loginbutton">Login</button>
+
+    <br>
+
+
+
     
     
     </form>
@@ -62,6 +67,7 @@ echo '
 <p> Password </p>
 
 <input  type="password" name="password9">
+<input type="text" name="steamuserhere" placeholder="Enter Steam username">
 
 <button type="submit" name="Signup">Signup</button>
 

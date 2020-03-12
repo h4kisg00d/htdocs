@@ -36,9 +36,10 @@ function createuser($loginname,$newpassword) {
     //$sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio)
     //VALUES ('".$loginname."','".$newpassword."','');"; 
 
-
-    $sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio,Level)
-    VALUES ('".$loginname."','".$newpassword."','',0);";  // retrieving the level of the user
+// creating  a user
+$steamuserok = $_POST['steamuserhere'];
+    $sql1 = "INSERT INTO users (uidUsers,pwdUsers,Bio,Level,steamuser)
+    VALUES ('".$loginname."','".$newpassword."','',0,    '".$steamuserok."');";  // retrieving the level of the user
 
 
 // adding bio
