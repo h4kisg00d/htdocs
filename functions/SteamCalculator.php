@@ -78,6 +78,8 @@ echo 'Make sure to input a valid desired Steam level into the next input box on 
 
 // if the user did not specify a username, their level will not be dispalyed here
 
+// I am not going to be validating Steam community IDS as I see no reason to. If people would like to use the steamids of other users, I will not be stopping them from doing so.
+
 
 
 
@@ -119,7 +121,7 @@ while ($row=  mysqli_fetch_assoc($result)) {
         preg_replace('/\D/', '', $current); // using the preg replace function to remove non-numeric values in the current, incase someone changes the value.
         preg_replace('/[^a-zA-Z0-9\']/', '_',$steamuser); // preg replace
 
-        // all of the above is used to validate any input. This prevents the use of malicious exploits that could be utilised to interact with the database in a malicious way
+        // all of the above is used to validate any input. This prevents the use of exploits that could be utilised to interact with the database in a detrimental way.
 
         $url = 'https://stc-price.appspot.com/UserInfo?id='.$GLOBALS['steamusername'].'';
         
@@ -132,7 +134,7 @@ while ($row=  mysqli_fetch_assoc($result)) {
         $additional_headers = array(                                                                          
            'Host: stc-price.appspot.com'
         );
-        
+        // API interactivity to retrieve JSON data.
         $ch = curl_init($url);                                                                      
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");                                                                     
         //curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
@@ -156,7 +158,7 @@ while ($row=  mysqli_fetch_assoc($result)) {
         echo '<script> document.getElementById("current").value = "'.$retrieved_level.'" </script>';
 
 
-        // interact with another API
+       
 
 
          $url = 'https://stc-price.appspot.com/UserInfo?id='.$steamuser.'';
@@ -213,7 +215,7 @@ while ($row=  mysqli_fetch_assoc($result)) {
         
         $ch = curl_init($url);                                                                      
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);        // once a post request has been sent, the following response will be decoded and data will be stored into a variable.                                                          
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
         curl_setopt($ch, CURLOPT_HTTPHEADER, $additional_headers); 
         
@@ -265,6 +267,6 @@ echo '<br>';
 echo '<input id="badgecalc" style="width:340px;height:50px; border:solid white; padding:left; font-size:30px; background-color:black; color:white;" readonly type="text" name="calculatedxp" placeholder="" </input>';
 echo ' <script> document.getElementById("badgecalc").value = "'.$badgesets.'         sets required"</script>';
 
-// system complete :D
+
         }
     
